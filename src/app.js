@@ -305,12 +305,6 @@ function newGame() {
   lives = 3;
   level = 0;
   hits = 0;
-  
-  // in case any of these are displayed
-  gameOverDiv.style.display = 
-    greetDiv.style.display = 
-      gameWonDiv.style.display = 
-        trainDiv.style.display = "none";
   levelUp();
   ctlinput.style.display = "block";
   ctlinput.addEventListener('keyup', onInputKey);

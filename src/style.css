@@ -191,6 +191,6 @@ input {
   background: orange;
   float: right;
   min-width: 150px;
-  height: 2rem;
+  height: calc(100% - 10px);
   border-radius: 10px;
 }
