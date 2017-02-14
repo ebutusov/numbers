@@ -1,8 +1,9 @@
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept();
 }
 
-import './style.css'
+import './style.css';
+import {GWindow} from "./gwindow.js";
 
 (function game(document, window) {
 
@@ -46,60 +47,6 @@ document.documentElement.style.setProperty("--w-width", WWIDTH+"px");
 
 function random(min, max) {
   return Math.floor(Math.random() * (max-min)) + min;  
-}
-
-function GWindow(text,x,y,timeout) {
-  this.text = text;
-  this.x = x;
-  this.y = y;
-  this.timeout = timeout;
-  this.el = null;
-  this.section = null;
-  this.isHit = false;
-  this.points = 0;
-}
-
-GWindow.prototype.addToDoc = function(section) {
-  const el = document.querySelector("#template > div").cloneNode(true);
-  el.querySelector(".gwin-text").innerHTML = this.text;
-  el.querySelector(".gwin-counter").innerText = this.timeout;
-  el.style.transform = `translate(${section.offsetWidth/2}px, ${-200}px`
-  this.el = el;
-  this.section = section;
-  section.appendChild(el);
-  setTimeout(()=> el.style.transform = `translate(${this.x}px, ${this.y}px`, 500);
-}
-
-GWindow.prototype.tick = function() {
-  if (this.el == null || this.isHit || this.timeout == 0) return;
-  const timeoutEl = this.el.querySelector(".gwin-counter");
-  if (this.timeout > 0)
-  {
-    this.timeout--;
-    timeoutEl.innerText = this.timeout;
-    if (this. timeout <= 5)
-      timeoutEl.classList.add("red");
-    else if (this.timeout <= 10)
-      timeoutEl.classList.add("orange");
-  }
-}
-
-GWindow.prototype.kill = function() {
-  var node = this.el;
-  var section = this.section;
-  setTimeout(()=>section.removeChild(node), 1000);
-  this.el = null;
-}
-
-GWindow.prototype.setHilight = function(text) {
-  this.el.querySelector(".gwin-text").innerHTML = text;
-}
-
-GWindow.prototype.hit = function() {
-  if (this.isHit) return;
-  this.el.classList.add("gwin-hit");
-  this.points =  parseInt(this.el.querySelector(".gwin-counter").innerText);
-  this.isHit = true;
 }
 
 function isOverlapRect(ax, ay, bx, by)
