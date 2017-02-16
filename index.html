@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Numbers game</title>
+  <meta name="author" content="ebutusov@gmail.com">
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div id='score'>
+  <div>
+    <div>Points:</div>
+    <div class='result' id="points">0</div>
+  </div>
+  <div>
+    <div>Level:</div>
+    <div class='result' id="level">0</div>
+  </div>
+  <div>
+    <div>Lives left:</div>
+    <div class='result' id="lives">0</div>
+  </div>
+  <div>
+    <div>Hits:</div>
+    <div class='result' id="hits">0</div>
+  </div>
+  <div id="buttons">
+    <button type="button" id="btnewgame">New game</button>
+  </div>
+</div>
+<div id='game'>
+</div>
+<div id='controls'>
+  <input id="ctlinput" type="text" placeholder="type here">
+</div>
+
+<div id="greet">
+<h1>Numbers game</h1>
+<h2>( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)</h2>
+The rules are:
+<br>
+<p align="justify">
+Type numers seen on the labels as fast as you can. Once you type in the number, hit ENTER to make
+the label(s) disappear. The time left on the counter is added to your points. If the counter 
+reaches zero on any of the labels, you lose one life. With each level the numbers get larger,
+but you also get an extra life.
+<p>
+<button class="btstart">Start game!</button>
+or
+<button class="btstarttrain">Start training!</button>
+</div>
+
+<div id="gameover">
+<h1>GAME OVER!</h1>
+<h2>( ͡° ͜ʖ ͡°)</h2>
+<br>
+<div id="gameover-result">Your score is: <span id="gameover-result-points">0</span> points</div><br>
+<button class="btstart">Try again!</button>
+</div>
+
+<div id="gamewon">
+<h1>You won!</h1>
+<h2>(◕‿◕✿)</h2>
+<br>
+<div id="gameover-result">Your score is: <span id="gamewon-result-points">0</span> points</div><br>
+<button class="btstart">Try again!</button>
+</div>
+
+<div id="training">
+  <h2>You can train your fingers without fear of losing lives!</h2>
+  <h2>¯\_(ツ)_/¯</h2>
+  <br>
+  <label for="rngnumbers">How many digits:</label>
+  <input type="number" min="1" max="5" name="rngnumbers" value="1" id="rngnumbers">
+  <br><br>
+  <button class="bttrain">Go!</button>
+</div>
+
+<div id="template" style="display: none">
+  <div class="gwin">
+    <div class="gwin-text"></div>
+    <div class="gwin-counter"></div>
+  </div>
+</div>
+<script src="dist/bundle.js"></script>
+</body>
+</html>
