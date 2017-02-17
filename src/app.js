@@ -2,6 +2,8 @@ if (module.hot) {
   module.hot.accept();
 }
 
+require('file-loader?name=[name].[ext]!../index.html');
+
 import './style.css';
 import {GWindow} from "./gwindow.js";
 
